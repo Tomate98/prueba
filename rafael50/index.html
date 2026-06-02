@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>RAFAEL 50 - METALLICA STYLE</title>
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome 6 CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Custom Styles -->
+<link rel="stylesheet" href="style.css">
+<!-- Anime.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo"><i class="fas fa-skull"></i> RAFAEL 50 <i class="fas fa-bolt"></i></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero"><i class="fas fa-home"></i> INICIO</a></li>
+    <li><a href="#invitation"><i class="fas fa-envelope"></i> INVITACIÓN</a></li>
+    <li><a href="#gallery"><i class="fas fa-images"></i> GALERÍA</a></li>
+    <li><a href="#setlist"><i class="fas fa-music"></i> SETLIST</a></li>
+  </ul>
+  <button class="nav-burger" id="burger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero">
+  <div class="lightning-bolt" id="lightningAnim"><i class="fas fa-bolt"></i></div>
+  <div class="metallica-logo" id="logoAnim">METALLICA</div>
+  <div class="hero-name" id="nameAnim">RAFAEL</div>
+  <div class="hero-age" id="ageAnim">50 AÑOS</div>
+  <div class="hero-date" id="dateAnim">
+    <i class="fas fa-calendar-alt"></i> LUNES 11 DE MAYO <i class="fas fa-clock"></i> 14:00 HS
+  </div>
+  <a href="#invitation" class="cta-btn" id="ctaAnim"><i class="fas fa-guitar"></i> VER INVITACIÓN <i class="fas fa-angle-double-right"></i></a>
+</section>
+
+<!-- INVITATION SECTION -->
+<section id="invitation">
+  <div class="invitation-card fade-in" id="inviteCard">
+    <div class="section-label">
+      <i class="fas fa-heart"></i> CON MUCHO AMOR TE INVITAMOS A CELEBRAR <i class="fas fa-heart"></i>
+    </div>
+
+    <div class="invite-host" id="hostText">
+      <i class="fas fa-female"></i> ROCIO SALTACHIN (ESPOSA)<br>
+      <i class="fas fa-child"></i> E HIJAS DAYANA Y GABRIELA
+    </div>
+
+    <div class="invite-detail" id="locationDetail">
+      <i class="fas fa-map-marker-alt"></i> UBICACIÓN<br>
+      Prolongación San Isidro 314, El Tambo - Huancayo
+    </div>
+
+    <div class="dress-code" id="dressCode">
+      <i class="fas fa-tshirt"></i> DRESS CODE: SPORT<br>
+      Cómodo, con estilo y listo para la fiesta.<br>
+      ¡Nada de trajes ni formalidades!
+    </div>
+
+    <div class="gift-message" id="giftMsg">
+      <i class="fas fa-gift"></i> "Con que vengas me alcanza, pero si caés con un regalito, no me voy a quejar" <i class="fas fa-smile-wink"></i>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown" id="countdownContainer">
+      <div class="countdown-box">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label"><i class="fas fa-sun"></i> Días</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label"><i class="fas fa-clock"></i> Horas</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label"><i class="fas fa-hourglass-half"></i> Minutos</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label"><i class="fas fa-stopwatch"></i> Segundos</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 1.8rem;">
+      <a href="#" id="whatsappBtn" class="cta-btn" style="padding: 0.6rem 1.8rem; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> CONFIRMAR ASISTENCIA</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <h2 class="metallica-logo" style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fas fa-crown"></i> MOMENTOS ÉPICOS <i class="fas fa-guitar"></i></h2>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-card gallery-item"><i class="fas fa-guitar"></i><span class="gallery-label">PRIMERA GUITARRA</span></div>
+    <div class="gallery-card gallery-item"><i class="fas fa-hand-peace"></i><span class="gallery-label">METALLICA VIVE</span></div>
+    <div class="gallery-card gallery-item"><i class="fas fa-bolt"></i><span class="gallery-label">ENERGÍA PURA</span></div>
+    <div class="gallery-card gallery-item"><i class="fas fa-fire"></i><span class="gallery-label">ESCENARIOS</span></div>
+  </div>
+</section>
+
+<!-- SETLIST -->
+<section id="setlist">
+  <h2 class="metallica-logo" style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fas fa-list-ul"></i> SETLIST 50 AÑOS <i class="fas fa-music"></i></h2>
+  <div class="setlist-container" id="setlistContainer">
+    <div class="setlist-item">
+      <div class="setlist-num setlistNum">01</div>
+      <div class="setlist-name"><i class="fas fa-drum"></i> Enter Sandman</div>
+      <div class="setlist-album">Metallica (1991)</div>
+    </div>
+    <div class="setlist-item">
+      <div class="setlist-num setlistNum">02</div>
+      <div class="setlist-name"><i class="fas fa-heart"></i> Nothing Else Matters</div>
+      <div class="setlist-album">Metallica (1991)</div>
+    </div>
+    <div class="setlist-item">
+      <div class="setlist-num setlistNum">03</div>
+      <div class="setlist-name"><i class="fas fa-robot"></i> Master of Puppets</div>
+      <div class="setlist-album">Master of Puppets (1986)</div>
+    </div>
+    <div class="setlist-item">
+      <div class="setlist-num setlistNum">04</div>
+      <div class="setlist-name"><i class="fas fa-church"></i> For Whom The Bell Tolls</div>
+      <div class="setlist-album">Ride the Lightning (1984)</div>
+    </div>
+    <div class="setlist-item">
+      <div class="setlist-num setlistNum">05</div>
+      <div class="setlist-name"><i class="fas fa-skull"></i> The Unforgiven</div>
+      <div class="setlist-album">Metallica (1991)</div>
+    </div>
+    <div class="setlist-item">
+      <div class="setlist-num setlistNum">06</div>
+      <div class="setlist-name"><i class="fas fa-bullseye"></i> Seek & Destroy</div>
+      <div class="setlist-album">Kill 'Em All (1983)</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-title">
+    <i class="fas fa-bolt"></i> RAFAEL 50 AÑOS <i class="fas fa-guitar"></i>
+  </div>
+  <div class="footer-details">
+    <i class="fas fa-calendar-alt"></i> Lunes 11 de Mayo de 2026 - 20:00 hs
+  </div>
+  <div class="footer-details">
+    <i class="fas fa-map-marker-alt"></i> Prolongación San Isidro 314, El Tambo - Huancayo
+  </div>
+  <div class="footer-details" style="margin-top: 0.8rem;">
+    <i class="fas fa-skull"></i> "El rock nunca muere, solo se vuelve más pesado" <i class="fas fa-guitar"></i>
+  </div>
+</footer>
+
+<!-- COMPANY FOOTER - IAN MIRAI CORP. -->
+<footer class="company-footer">
+  <div class="company-footer-inner">
+    <div class="company-brand">
+      <img src="img/logo_ian.png" alt="IAN MIRAI CORP.">
+    </div>
+
+    <div class="company-contact">
+      <span><i class="fas fa-code"></i> Desarrollado por Ian Sopian.</span>
+      <a href="mailto:info.ianmirai.corp@gmail.com"><i class="fas fa-envelope"></i> info.ianmirai.corp@gmail.com</a>
+      <a href="https://wa.me/51914369173" target="_blank"><i class="fab fa-whatsapp"></i> +51 914 369 173</a>
+    </div>
+
+    <div class="company-tagline">
+      &copy; 2026 | Soluciones Digitales
+    </div>
+  </div>
+</footer>
+
+<!-- Custom Scripts -->
+<script src="script.js"></script>
+</body>
+</html>

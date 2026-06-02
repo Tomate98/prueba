@@ -1,0 +1,1021 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blood: #c0392b;
+  --blood-dark: #8b1a1a;
+  --metal-dark: #0a0a0a;
+  --metal-gray: #1a1a1a;
+  --bone: #e0e0e0;
+  --silver: #b0b0b0;
+  --dark-silver: #6c6c6c;
+  --lightning: #f39c12;
+  --gold: #f1c40f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #030303;
+  color: var(--bone);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* METALLICA NOISE OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("img/fondo.png");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: rgba(0, 0, 0, 0.96);
+  border-bottom: 2px solid var(--blood);
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.5rem;
+  color: var(--blood);
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(192, 57, 43, 0.7);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.nav-logo i {
+  margin-right: 8px;
+}
+
+.nav-logo:hover {
+  color: var(--lightning);
+  text-shadow: 0 0 20px var(--lightning);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: var(--silver);
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links a i {
+  margin-right: 6px;
+  font-size: 0.85rem;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--blood);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--blood);
+}
+
+.nav-links a.active {
+  color: var(--blood);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-burger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--silver);
+  transition: 0.3s;
+    transform-origin: center;
+  }
+
+  .nav-burger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .nav-burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-burger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* SECTIONS */
+  section {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 3rem 1rem;
+  }
+
+  /* HERO - METALLICA STYLE */
+  #hero {
+    background: radial-gradient(ellipse at 30% 40%, rgba(26, 5, 5, 0.85) 0%, rgba(2, 2, 2, 0.9) 100%);
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 5rem 1rem 3rem;
+  }
+
+/* Partículas de fondo animadas */
+.particle {
+  position: absolute;
+  background: rgba(192, 57, 43, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.metallica-logo {
+  font-family: 'Metal Mania', cursive;
+  font-size: clamp(3rem, 12vw, 7rem);
+  color: var(--blood);
+  text-shadow: 0 0 30px rgba(192, 57, 43, 0.8), 4px 4px 0px #000;
+  letter-spacing: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.lightning-bolt {
+  font-size: 4rem;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  color: var(--lightning);
+}
+
+.hero-name {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-family: 'Metal Mania', cursive;
+  color: var(--bone);
+  text-shadow: 4px 4px 0 var(--blood), 8px 8px 0 rgba(0, 0, 0, 0.5);
+  margin: 0.5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-age {
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: var(--lightning);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-date {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-top: 1rem;
+  color: var(--silver);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-date i {
+  margin: 0 6px;
+  color: var(--blood);
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 2.2rem;
+  background: transparent;
+  border: 2px solid var(--blood);
+  color: var(--bone);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.cta-btn i {
+  margin-right: 8px;
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--blood);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.cta-btn:hover::before {
+  left: 0;
+}
+
+.cta-btn:hover {
+  border-color: var(--blood);
+  box-shadow: 0 0 25px rgba(192, 57, 43, 0.6);
+}
+
+/* INVITATION CARD */
+.invitation-card {
+  max-width: 700px;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.92);
+  border: 2px solid var(--blood);
+  padding: 2.5rem;
+  margin: 1rem auto;
+  position: relative;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+}
+
+.invitation-card:hover {
+  box-shadow: 0 0 40px rgba(192, 57, 43, 0.3);
+  transform: translateY(-5px);
+}
+
+.invitation-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(192, 57, 43, 0.3);
+  pointer-events: none;
+}
+
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 3px;
+  font-size: 0.95rem;
+  color: var(--blood);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.section-label i {
+  margin: 0 4px;
+}
+
+.invite-host {
+  font-size: 1.35rem;
+  font-family: 'Metal Mania', cursive;
+  color: var(--lightning);
+  margin: 1rem 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.invite-host i {
+  color: var(--blood);
+  margin: 0 5px;
+}
+
+.invite-detail {
+  margin: 1rem 0;
+  font-size: 1rem;
+  border-left: 3px solid var(--blood);
+  padding-left: 1rem;
+  transition: all 0.3s;
+}
+
+.invite-detail:hover {
+  border-left-color: var(--lightning);
+  padding-left: 1.2rem;
+}
+
+.invite-detail i {
+  color: var(--blood);
+  margin-right: 10px;
+  width: 24px;
+  text-align: center;
+}
+
+.dress-code {
+  background: rgba(192, 57, 43, 0.1);
+  padding: 1rem;
+  border-radius: 0;
+  margin: 1.2rem 0;
+  text-align: center;
+  border: 1px dashed var(--blood);
+  transition: all 0.3s;
+}
+
+.dress-code:hover {
+  background: rgba(192, 57, 43, 0.2);
+  border-color: var(--lightning);
+}
+
+.dress-code i {
+  color: var(--blood);
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.gift-message {
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.gift-message i {
+  margin-right: 8px;
+  color: var(--gold);
+}
+
+/* GALLERY */
+#gallery {
+  background: #080808;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.gallery-card {
+  background: linear-gradient(145deg, #0f0f0f, #050505);
+  border: 1px solid #2a1a1a;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(192, 57, 43, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.gallery-card:hover::before {
+  transform: translateX(100%);
+}
+
+.gallery-card:hover {
+  border-color: var(--blood);
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(192, 57, 43, 0.4);
+}
+
+.gallery-card i {
+  font-size: 3.5rem;
+  transition: all 0.3s;
+  color: var(--silver);
+}
+
+.gallery-card:hover i {
+  transform: scale(1.1);
+  color: var(--blood);
+}
+
+.gallery-label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+/* SETLIST */
+#setlist {
+  background: #0a0a0a;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.setlist-container {
+  max-width: 750px;
+  width: 100%;
+}
+
+.setlist-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #1f1f1f;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.setlist-item:hover {
+  background: rgba(192, 57, 43, 0.08);
+  padding-left: 1rem;
+  border-bottom-color: var(--blood);
+}
+
+.setlist-num {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.6rem;
+  color: var(--blood);
+  min-width: 55px;
+  text-align: center;
+}
+
+.setlist-name {
+  font-size: 1rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.setlist-name i {
+  margin-right: 8px;
+  font-size: 0.9rem;
+  color: var(--dark-silver);
+}
+
+.setlist-album {
+  font-size: 0.85rem;
+  color: var(--dark-silver);
+  text-transform: uppercase;
+}
+
+/* COUNTDOWN */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--blood);
+  padding: 0.8rem 1.2rem;
+  text-align: center;
+  min-width: 70px;
+}
+
+.countdown-number {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.8rem;
+  color: var(--lightning);
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.countdown-label i {
+  margin-right: 4px;
+  font-size: 0.65rem;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  border-top: 2px solid var(--blood);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+footer i {
+  margin: 0 5px;
+  color: var(--blood);
+}
+
+footer .footer-title {
+  font-family: 'Metal Mania', cursive;
+  color: var(--blood);
+  font-size: 1.1rem;
+}
+
+footer .footer-details {
+  font-size: 0.95rem;
+  color: var(--silver);
+  margin-top: 0.5rem;
+}
+
+/* COMPANY FOOTER */
+.company-footer {
+  background: linear-gradient(145deg, #0a0a0a, #000);
+  border-top: 1px solid rgba(192, 57, 43, 0.3);
+  padding: 2rem 1rem;
+  color: var(--silver);
+  font-size: 0.95rem;
+}
+
+.company-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.company-logo img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.company-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  min-width: 240px;
+}
+
+.company-details h3 {
+  color: var(--blood);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.company-details p {
+  margin: 0;
+}
+
+.company-note {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  opacity: 0.75;
+  font-size: 0.85rem;
+  color: rgba(192, 192, 192, 0.8);
+}
+
+/* ANIMATION CLASSES */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .setlist-container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--blood);
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-burger {
+    display: flex;
+  }
+
+  #hero {
+    min-height: auto;
+    padding: 4rem 1rem 2rem;
+  }
+
+  .metallica-logo {
+    font-size: clamp(2rem, 10vw, 5rem);
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+
+  .hero-age {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .invitation-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .invite-host {
+    font-size: 1.2rem;
+  }
+
+  .countdown {
+    gap: 0.8rem;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .countdown-box {
+    padding: 0.5rem 0.8rem;
+    min-width: 55px;
+  }
+
+  .countdown-number {
+    font-size: 1.2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .gallery-card i {
+    font-size: 2.5rem;
+  }
+
+  .setlist-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.8rem 0;
+  }
+
+  .setlist-num {
+    font-size: 1.2rem;
+    min-width: 45px;
+  }
+
+  .setlist-name {
+    font-size: 1rem;
+  }
+
+  .setlist-album {
+    width: 100%;
+    padding-left: 45px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 0.6rem 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .metallica-logo {
+    font-size: clamp(1.8rem, 8vw, 4rem);
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 7vw, 4rem);
+  }
+
+  .hero-age {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+  }
+
+  .hero-date {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .invitation-card {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .invite-host {
+    font-size: 1rem;
+  }
+
+  .invite-detail {
+    font-size: 1rem;
+    padding-left: 0.8rem;
+  }
+
+  .dress-code {
+    padding: 0.8rem;
+  }
+
+  .countdown {
+    gap: 0.5rem;
+  }
+
+  .countdown-box {
+    padding: 0.4rem 0.6rem;
+    min-width: 45px;
+  }
+
+  .countdown-number {
+    font-size: 1rem;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+
+  .gallery-card {
+    gap: 0.8rem;
+  }
+
+  .gallery-card i {
+    font-size: 2rem;
+  }
+
+  .gallery-label {
+    font-size: 0.8rem;
+  }
+
+  .setlist-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .setlist-item {
+    gap: 0.8rem;
+  }
+
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  footer div:first-child {
+    font-size: 1rem;
+  }
+
+  .company-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .company-info h3 {
+    font-size: 1rem;
+  }
+
+  .company-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-date {
+    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .countdown {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .countdown-box {
+    flex: 1 1 calc(50% - 0.4rem);
+    min-width: auto;
+  }
+
+  .setlist-num {
+    min-width: 35px;
+    font-size: 1rem;
+  }
+
+  .setlist-album {
+    padding-left: 35px;
+  }
+}
+
+
+/* IMAGEN DE FONDO PRINCIPAL */
+body {
+    background-image: url('img/fondo.png');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Hacemos que las secciones tengan fondo semi-transparente para ver la imagen */
+#hero, #invitation .invitation-card, #gallery, #setlist, footer {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* El hero conserva su gradiente pero ahora es semi-transparente */
+#hero {
+    background: radial-gradient(ellipse at 30% 40%, rgba(26, 5, 5, 0.85) 0%, rgba(2, 2, 2, 0.9) 100%);
+}
+
+/* La galería y setlist también se vuelven semi-transparentes */
+#gallery, #setlist, footer {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Mantenemos el ruido overlay pero por encima de la imagen */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+}
+
+
+
+/* --- NUEVO ESTILO FOOTER EMPRESA (COMPACTO) --- */
+.company-footer {
+  background: rgba(5, 5, 5, 0.95); /* Más oscuro y plano */
+  border-top: 1px solid #1a1a1a;
+  padding: 1rem 2rem;
+  color: var(--dark-silver);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.company-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.company-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.company-brand img {
+  height: 35px; /* Logo pequeño y elegante */
+  width: auto;
+  filter: grayscale(100%) brightness(0.8);
+  transition: 0.3s;
+}
+
+.company-brand:hover img {
+  filter: grayscale(0%) brightness(1);
+}
+
+.company-brand span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #444; /* Gris muy discreto */
+}
+
+.company-contact {
+  display: flex;
+  gap: 20px;
+  font-size: 0.85rem;
+}
+
+.company-contact a, 
+.company-contact span {
+  color: var(--dark-silver);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+.company-contact a:hover {
+  color: var(--blood); /* Resalta con tu color principal al pasar el mouse */
+}
+
+.company-contact i {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.company-tagline {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+/* AJUSTE PARA MÓVILES */
+@media (max-width: 768px) {
+  .company-footer-inner {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .company-contact {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .company-brand img {
+    height: 30px; /* Un poco más grande en móvil para que se vea */
+  }
+}
